@@ -158,8 +158,16 @@ fn check_frequency_penalty(user_input: Option<f32>, config: &mut Config) {
         None => {}
     }
 }
+
+fn check_special_flag(arg: &Arguments) {
+    if arg.translate && arg.correct {
+        utils::exit("Please use only one special flag", true)
+    }
+}
+
 pub fn pars_argument(arg: Arguments) -> Config {
     let mut config = get_conf_file();
+    check_special_flag(&arg);
     check_max_token(arg.max_tokens, &mut config);
     check_temperature(arg.temperature, &mut config);
     check_top_p(arg.top_p, &mut config);

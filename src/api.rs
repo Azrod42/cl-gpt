@@ -5,6 +5,16 @@ use crate::{
 };
 use reqwest::header::{AUTHORIZATION, CONTENT_TYPE};
 
+fn generate_prompt(prompt: &str, args: &Arguments) -> String {
+    if args.translate {
+        return format!("{}{}", "Traduis cette phrase en anglais : ", prompt);
+    } else if args.correct {
+        return format!("{}{}", "Corrige cette phrase : ", prompt);
+    } else {
+        String::from(prompt)
+    }
+}
+
 #[tokio::main]
 pub async fn gpt_completion(
     prompt: String,
@@ -14,7 +24,7 @@ pub async fn gpt_completion(
     //Create message to send
     let prompt = types::Message {
         role: "user".into(),
-        content: prompt,
+        content: generate_prompt(&prompt, args),
     };
     //Create JSON for post request
     let json_body = types::Request {
@@ -36,7 +46,10 @@ pub async fn gpt_completion(
     //Sending post request
     let response = client
         .post("https://api.openai.com/v1/chat/completions")
-        .header(AUTHORIZATION, "Bearer YOUR_API_KEY")
+        .header(
+            AUTHORIZATION,
+            "Bearer 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",
+        )
         .header(CONTENT_TYPE, "application/json")
         .body(serde_json::to_string(&json_body).unwrap())
         .send()

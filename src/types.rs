@@ -8,7 +8,7 @@ pub struct Arguments {
     #[clap(short, long, default_value_t = false)]
     pub info: bool,
 
-    #[clap(short, long)]
+    #[clap(long)]
     pub color: Option<String>,
 
     #[clap(long)]
@@ -31,6 +31,12 @@ pub struct Arguments {
 
     #[clap(long, default_value_t = false)]
     pub config: bool,
+
+    #[clap(short, long, default_value_t = false)]
+    pub translate: bool,
+
+    #[clap(short, long, default_value_t = false)]
+    pub correct: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

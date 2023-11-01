@@ -74,7 +74,7 @@ pub async fn gpt_completion(
             panic!("")
         });
 
-    //Paring response form OpenAI
+    //Parsing response form OpenAI
     let mut api_response: Option<types::APIResponse> = None;
     match response.status() {
         reqwest::StatusCode::OK => {

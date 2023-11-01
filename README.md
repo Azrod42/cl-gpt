@@ -21,6 +21,11 @@ Retrieve your API key here: https://platform.openai.com/account/api-keys and exe
 export OPEN_AI_KEY=YOUR_API_KEY
 ```
 
+Install rust
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
 #### Automatic installation
 
 (only works on Mac and Linux using a zshrc).
@@ -41,12 +46,6 @@ Replace YOUR_API_KEY in src/api.rs by your api key:
 
 ```bash
 sed -i "s/YOUR_API_KEY/REPLACE_BY_YOUR_KEY/g" src/api.rs
-```
-
-Install rust :
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 Run the build:

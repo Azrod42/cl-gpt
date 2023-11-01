@@ -26,6 +26,8 @@ Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+!!!RESTART YOUR SHELL!!!
+
 ### Automatic installation
 
 (only works on Mac and Linux using a zshrc).

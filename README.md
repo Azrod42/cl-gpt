@@ -26,15 +26,15 @@ Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-#### Automatic installation
+### Automatic installation
 
 (only works on Mac and Linux using a zshrc).
 
 ```bash
-	git clone https://github.com/Azrod42/cli-gpt.git && cd cli-gpt && sh install.sh
+git clone https://github.com/Azrod42/cli-gpt.git && cd cli-gpt && sh install.sh
 ```
 
-#### Manual installation
+### Manual installation
 
 Download project and go inside:
 

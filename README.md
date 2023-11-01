@@ -2,7 +2,7 @@
 
 Command-line interface using ChatGPT
 
-![[Pasted image 20231101133039.png]]
+![gpt](https://i.postimg.cc/L4NXhDNh/Selection-008.png)
 
 ## Feature
 
@@ -23,7 +23,7 @@ export OPEN_AI_KEY=YOUR_API_KEY
 
 #### Automatic installation
 
-    (only works on Mac and Linux using a zshrc).
+(only works on Mac and Linux using a zshrc).
 
 ```bash
 	git clone https://github.com/Azrod42/cli-gpt.git && cd cli-gpt && sh install.sh

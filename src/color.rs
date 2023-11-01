@@ -1,4 +1,4 @@
-pub fn change_color(color: &String) {
+pub fn change_color(color: &str) {
     match color.as_ref() {
         "red" => print!("\u{001b}[0;31m"),
         "green" => print!("\u{001b}[0;32m"),

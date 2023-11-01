@@ -2,7 +2,7 @@ use std::env;
 
 use crate::files::{create_conf_file, delete_conf_file, read_conf_file};
 use crate::types::{Arguments, Config};
-use crate::utils;
+use crate::{output, utils};
 
 fn check_color_input(arg: Arguments, config: &mut Config) {
     let accepted_color = vec![
@@ -13,14 +13,7 @@ fn check_color_input(arg: Arguments, config: &mut Config) {
             if accepted_color.iter().any(|&i| i == color) {
                 config.color = color;
             } else {
-                println!("\u{001b}[0;31m\nError: Unknow color please use one of:");
-                print!("\u{001b}[0;31m{} \u{001b}[0m default ", "red");
-                print!("\u{001b}[0;32m{} ", "green");
-                print!("\u{001b}[0;33m{} ", "orange");
-                print!("\u{001b}[0;34m{} ", "blue");
-                print!("\u{001b}[0;35m{} ", "magenta");
-                print!("\u{001b}[0;36m{} ", "cyan");
-                print!("\u{001b}[0;37m{}\n", "white");
+                output::print_avalible_colors();
                 std::process::exit(1);
             }
         }
@@ -32,14 +25,7 @@ fn check_color_input(arg: Arguments, config: &mut Config) {
             if accepted_color.iter().any(|&i| i == color) {
                 config.code_color = color;
             } else {
-                println!("\u{001b}[0;31m\nError: Unknow code_color please use one of:");
-                print!("\u{001b}[0;31m{} \u{001b}[0m default ", "red");
-                print!("\u{001b}[0;32m{} ", "green");
-                print!("\u{001b}[0;33m{} ", "orange");
-                print!("\u{001b}[0;34m{} ", "blue");
-                print!("\u{001b}[0;35m{} ", "magenta");
-                print!("\u{001b}[0;36m{} ", "cyan");
-                print!("\u{001b}[0;37m{}\n", "white");
+                output::print_avalible_colors();
                 std::process::exit(1);
             }
         }
@@ -160,7 +146,7 @@ fn check_frequency_penalty(user_input: Option<f32>, config: &mut Config) {
 }
 
 fn check_special_flag(arg: &Arguments) {
-    if arg.translate && arg.correct {
+    if arg.translate.is_some() && arg.correct.is_some() {
         utils::exit("Please use only one special flag", true)
     }
 }

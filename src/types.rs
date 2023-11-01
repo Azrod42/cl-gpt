@@ -2,41 +2,47 @@ use clap::Parser;
 use serde::{Deserialize, Serialize};
 
 #[derive(Parser, Default, Debug, Clone)]
+#[command(
+    name = "GPT-CLI",
+    author = "tsorabel",
+    version = "1.0",
+    about = "GPT-CLI made by tsorabel"
+)]
 pub struct Arguments {
     pub arg: Vec<String>,
 
     #[clap(short, long, default_value_t = false)]
     pub info: bool,
 
-    #[clap(long)]
-    pub color: Option<String>,
-
-    #[clap(long)]
-    pub code_color: Option<String>,
-
-    #[clap(short, long)]
-    pub max_tokens: Option<i16>,
-
-    #[clap(long)]
-    pub temperature: Option<f32>,
-
-    #[clap(long)]
-    pub top_p: Option<f32>,
-
-    #[clap(long)]
-    pub frequency_penalty: Option<f32>,
-
-    #[clap(long)]
-    pub presence_penalty: Option<f32>,
-
     #[clap(long, default_value_t = false)]
     pub config: bool,
 
-    #[clap(short, long, default_value_t = false)]
-    pub translate: bool,
+    #[clap(long, about, value_name = "COLOR")]
+    pub color: Option<String>,
 
-    #[clap(short, long, default_value_t = false)]
-    pub correct: bool,
+    #[clap(long, value_name = "COLOR")]
+    pub code_color: Option<String>,
+
+    #[clap(long, value_name = "0 - 16000")]
+    pub max_tokens: Option<i16>,
+
+    #[clap(long, value_name = "0 - 2.0")]
+    pub temperature: Option<f32>,
+
+    #[clap(long, value_name = "0 - 1.0")]
+    pub top_p: Option<f32>,
+
+    #[clap(long, value_name = "0 - 2.0")]
+    pub frequency_penalty: Option<f32>,
+
+    #[clap(long, value_name = "0 - 2.0")]
+    pub presence_penalty: Option<f32>,
+
+    #[clap(short, long, value_name = "LANGUAGE")]
+    pub translate: Option<String>,
+
+    #[clap(short, long, value_name = "LANGUAGE")]
+    pub correct: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

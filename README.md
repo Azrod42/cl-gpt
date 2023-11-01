@@ -4,7 +4,7 @@ Command-line interface using ChatGPT
 
 ![gpt](https://i.postimg.cc/L4NXhDNh/Selection-008.png)
 
-## Feature
+# Feature
 
 - Command-Line Interface: Interact with ChatGPT from your terminal.
 - Customize the Model: Take complete control over the AI's behavior by overriding the default temperature, top_p, frequency_penalty and presence_penalty values for each assistant.
@@ -13,7 +13,7 @@ Command-line interface using ChatGPT
 - Color customization: customize the dominant color of the responses and the color of the code.
 - Memory of settings: allows to store and remember your ChatGPT configuration.
 
-## Installation
+# Installation
 
 Retrieve your API key here: https://platform.openai.com/account/api-keys and execute the following command by replacing YOUR_API_KEY.
 
@@ -28,7 +28,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 !!!RESTART YOUR SHELL!!!
 
-### Automatic installation
+## Automatic installation
 
 (only works on Mac and Linux using a zshrc).
 
@@ -36,7 +36,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/Azrod42/cli-gpt.git && cd cli-gpt && sh install.sh
 ```
 
-### Manual installation
+## Manual installation
 
 Download project and go inside:
 
@@ -74,7 +74,7 @@ Restart your shell and use:
 gpt --help
 ```
 
-## Usage
+# Usage
 
 ```bash
 Usage: gpt [OPTIONS] [ARG]...

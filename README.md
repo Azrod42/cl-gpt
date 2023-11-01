@@ -71,7 +71,7 @@ echo 'alias gpt="~/.config/gpt \"\""' >> ~/.zshrc
 Restart your shell and use:
 
 ```bash
-zsh && gpt --help
+gpt --help
 ```
 
 ## Usage

@@ -47,7 +47,7 @@ git clone https://github.com/Azrod42/cli-gpt.git && cd cli-gpt
 Replace YOUR_API_KEY in src/api.rs by your api key:
 
 ```bash
-sed -i "s/YOUR_API_KEY/REPLACE_BY_YOUR_KEY/g" src/api.rs
+perl -pi -e "s/YOUR_API_KEY/$OPEN_AI_KEY/g" src/api.rs
 ```
 
 Run the build:

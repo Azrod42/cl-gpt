@@ -33,7 +33,7 @@ pub fn print_info(response: &APIResponse, config: &Config) {
             response.usage.completion_tokens,
             response.usage.total_tokens,
             config.total_tokens,
-            ((config.total_tokens as f32 / 1000.0) * 0.004)
+            ((config.total_tokens as f32 / 1000.0) * 0.01)
         );
 }
 

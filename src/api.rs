@@ -44,9 +44,13 @@ pub async fn gpt_completion(
         role: "user".into(),
         content: generate_prompt(&prompt, args),
     };
+    let mut model = "gpt-3.5-turbo-1106";
+    if args.gpt_4 {
+        model = "gpt-4-1106-preview"
+    }
     //Create JSON for post request
     let json_body = types::Request {
-        model: "gpt-3.5-turbo-16k".into(),
+        model: model.to_string(),
         messages: vec![prompt],
         temperature: config.temperature,
         max_tokens: config.max_tokens,
@@ -64,7 +68,10 @@ pub async fn gpt_completion(
     //Sending post request
     let response = client
         .post("https://api.openai.com/v1/chat/completions")
-        .header(AUTHORIZATION, "Bearer YOUR_API_KEY")
+        .header(
+            AUTHORIZATION,
+            "Bearer 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",
+        )
         .header(CONTENT_TYPE, "application/json")
         .body(serde_json::to_string(&json_body).unwrap())
         .send()

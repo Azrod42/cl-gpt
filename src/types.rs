@@ -43,6 +43,9 @@ pub struct Arguments {
 
     #[clap(short, long, value_name = "LANGUAGE")]
     pub correct: Option<String>,
+
+    #[clap(long, default_value_t = false)]
+    pub gpt_4: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

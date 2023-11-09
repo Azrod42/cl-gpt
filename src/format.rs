@@ -15,7 +15,7 @@ pub fn md_code_format(mut gpt_message: String, config: &Config) -> String {
             &gpt_message[end..]
         );
 
-        let start = gpt_message.find("```").unwrap();
+        let start = gpt_message.find("```").unwrap_or(0);
         let end = start + 3;
         change_color(&config.color);
         gpt_message = format!(

@@ -70,7 +70,7 @@ pub async fn gpt_completion(
         .post("https://api.openai.com/v1/chat/completions")
         .header(
             AUTHORIZATION,
-            "Bearer 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",
+            "Bearer YOUR_API_KEY",
         )
         .header(CONTENT_TYPE, "application/json")
         .body(serde_json::to_string(&json_body).unwrap())
